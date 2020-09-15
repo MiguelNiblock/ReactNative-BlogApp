@@ -3,6 +3,12 @@ import createContext from './createContext';
 
 const reducer = (state,action) => {
   switch(action.type){
+    case 'edit_post':
+      return state.map((post)=>{
+        return post.id === action.payload.id
+          ? action.payload
+          : post
+      })
     case 'delete_post':
       return state.filter((post)=>post.id !== action.payload)
     case 'add_post':
@@ -19,7 +25,7 @@ const reducer = (state,action) => {
 const addBlogPost = (dispatch) => {
   return (title, content, callback)=>{
     dispatch({type: 'add_post', payload: {title,content}});
-    callback();
+    if (callback){callback()}  
   };
 };
 
@@ -27,9 +33,16 @@ const deleteBlogPost = (dispatch) => {
   return (id)=>dispatch({type: 'delete_post',payload: id});
 };
 
+const editBlogPost = (dispatch) => {
+  return (id, title, content, callback) => {
+    dispatch({type:'edit_post',payload:{id,title,content}});
+    if (callback){callback()}
+  }
+}
+
 export const {Context, Provider} = createContext(
   reducer,
-  {addBlogPost, deleteBlogPost},
+  {addBlogPost, deleteBlogPost, editBlogPost},
   [{id:12342342, title: 'Test Post', content: 'This is sample content'}]
 );
 

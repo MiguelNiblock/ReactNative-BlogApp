@@ -15,12 +15,6 @@ const ShowScreen = ({navigation}) => {
   )
 };
 
-const styles = StyleSheet.create({
-  edit: {
-    marginRight: 30,
-  }
-});
-
 ShowScreen.navigationOptions = ({navigation}) => {
   return {
     headerRight: () => (
@@ -33,5 +27,11 @@ ShowScreen.navigationOptions = ({navigation}) => {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  edit: {
+    marginRight: 30,
+  }
+});
 
 export default ShowScreen;
