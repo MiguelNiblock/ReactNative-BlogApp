@@ -9,8 +9,8 @@ const ShowScreen = ({navigation}) => {
 
   return (
     <View>
-      <Text>{blogPost.title}</Text>
-      <Text>{blogPost.content}</Text>
+      <Text style={styles.title}>{blogPost.title}</Text>
+      <Text style={styles.content}>{blogPost.content}</Text>
     </View>
   )
 };
@@ -31,6 +31,15 @@ ShowScreen.navigationOptions = ({navigation}) => {
 const styles = StyleSheet.create({
   edit: {
     marginRight: 30,
+  },
+  title: {
+    fontSize: 22,
+    margin: 10,
+    fontWeight: 'bold'
+  },
+  content : {
+    fontSize: 18,
+    margin: 5
   }
 });
 

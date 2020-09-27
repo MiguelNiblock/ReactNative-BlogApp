@@ -43,7 +43,7 @@ const editBlogPost = (dispatch) => {
 export const {Context, Provider} = createContext(
   reducer,
   {addBlogPost, deleteBlogPost, editBlogPost},
-  [{id:12342342, title: 'Test Post', content: 'This is sample content'}]
+  [{id:1234, title: 'Test Post', content: 'This is sample content'}]
 );
 
 // a provider is a component that returns a context component, which wraps a 'children' component. children here will be our navigator component. Therefore, it will include all other screens and components inside our application.
