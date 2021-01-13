@@ -1,5 +1,9 @@
 # Blog  App
 
+App demo: https://snack.expo.io/@miguelniblock/github.com-miguelniblock-reactnative-blogapp
+
+Backend code: https://glitch.com/edit/#!/reactnative-blogapp-jsonserver
+
 This react native app allows you to create new blog posts by pressing the "+" button. Each entry has a title and content property. Posts can be edited by clicking on the post, and pressing the "pencil" button. A form is shown while editing, which contains `TextInput` elements and a submit button. 
 
 ## Technical Features
