@@ -1,12 +1,25 @@
-import React,{useContext} from 'react';
+import React,{useContext,useEffect} from 'react';
 import { View, Text, StyleSheet, FlatList, Button, TouchableOpacity } from 'react-native';
 import {Context} from '../context/BlogContext';
 import {Feather, Ionicons} from '@expo/vector-icons';
 
 const IndexScreen = ({navigation}) => {
 
-  const {state,deleteBlogPost} = useContext(Context);
-  
+  const {state,deleteBlogPost,getBlogPosts} = useContext(Context);
+
+  useEffect(()=>{
+    getBlogPosts();
+    //run again whenever screen focuses
+    const listener = navigation.addListener('didFocus', ()=>{
+      getBlogPosts();
+    })
+    //clean up. Runs if screen is no longer active, or in background.
+    //Good practice for preventing memory leaks.
+    return () => {
+      listener.remove();
+    }
+  }, [] );
+
   return (
     <View>
       <FlatList 
